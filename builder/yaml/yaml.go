@@ -6,7 +6,6 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/cjcodell1/tint/file"
 	"github.com/cjcodell1/tint/machine"
 )
 
