@@ -70,7 +70,15 @@ func Run() {
 
 	// Builds the Turing machine from the first non-flag argument.
 	mPath := flag.Arg(0)
-	m, err := yaml.Build(mPath, machineFlag)
+
+	// Read the file
+	config, err := file.ReadAll(mPath)
+	if err != nil {
+		fmt.Println("Could not read file")
+		os.Exit(1)
+	}
+
+	m, err = yaml.Build(config, machineFlag)
 	if err != nil {
 		flag.PrintDefaults()
 		fmt.Println("There was an error building your machine.")

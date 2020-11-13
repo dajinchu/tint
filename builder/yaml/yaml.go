@@ -19,16 +19,9 @@ type strawman struct{}
 func (s strawman) subBuild() (machine.Machine, error) { return nil, nil }
 
 // Build creates a Turing machine from a YAML file.
-func Build(configPath string, machineType string) (machine.Machine, error) {
+func Build(config string, machineType string) (machine.Machine, error) {
 
-	var config string
 	var err error
-
-	// Read the file
-	config, err = file.ReadAll(configPath)
-	if err != nil {
-		return nil, err
-	}
 
 	// Unmarshal the YAML
 	// TODO figure out how to change the builder in the switch like this
